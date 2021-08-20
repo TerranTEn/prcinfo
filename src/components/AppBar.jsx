@@ -7,7 +7,8 @@ import {
 } from "@material-ui/core";
 
 import Menu from "./Menu";
-import image from "../images/icon.png";
+import iconImage from "../images/icon.png";
+import textImage from "../images/PRCtext.png";
 
 function AppBar(props) {
   const classes = useStyles();
@@ -16,35 +17,33 @@ function AppBar(props) {
     <Grid item xs={12}>
       <MuiAppBar position="static">
         <Toolbar className={classes.toolbar} disableGutters>
-          <img
-            className={`${classes.icon} ${classes.navItem}`}
-            src={image}
-            alt="icon"
-          />
-          <Typography className={classes.navItem} variant="h6">
-            {props.appTitle}
-          </Typography>
-          <div className={classes.links}>
-            <a
-              className={`${classes.link} ${classes.navItem}`}
-              href="#about-section"
-            >
-              <Typography>About</Typography>
-            </a>
-            <a
-              className={`${classes.link} ${classes.navItem}`}
-              href="#about-section"
-            >
-              <Typography>Blog</Typography>
-            </a>
-            <a
-              className={`${classes.link} ${classes.navItem}`}
-              href="#about-section"
-            >
-              <Typography>Contact</Typography>
-            </a>
-            <Menu className={classes.menuButton} />
-          </div>
+          <img className={`${classes.icon}`} src={iconImage} alt="icon" />
+          <img className={`${classes.icon}`} src={textImage} alt="icon" />
+          <a
+            className={`${classes.link} ${classes.navItem}`}
+            href="#about-section"
+          >
+            <Typography variant="h6">Home</Typography>
+          </a>
+          <a
+            className={`${classes.link} ${classes.navItem}`}
+            href="#about-section"
+          >
+            <Typography variant="h6">About Us</Typography>
+          </a>
+          <a
+            className={`${classes.link} ${classes.navItem}`}
+            href="#about-section"
+          >
+            <Typography variant="h6">Campaigns</Typography>
+          </a>
+          <a
+            className={`${classes.link} ${classes.navItem}`}
+            href="#about-section"
+          >
+            <Typography variant="h6">News</Typography>
+          </a>
+          <Menu className={classes.menuButton} />
         </Toolbar>
       </MuiAppBar>
     </Grid>
@@ -54,30 +53,31 @@ function AppBar(props) {
 const useStyles = makeStyles({
   icon: {
     height: "100%",
-  },
-  navItem: {
     padding: "0px 10px",
   },
-  toolbar: {
-    height: "54px",
-    minHeight: "54px", // overriding mui's minHeight of 64px
-    padding: "10px",
-    backgroundColor: "black",
+  navItem: {
+    padding: "0px 30px",
   },
-  links: {
+  toolbar: {
     flexGrow: "1",
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
+    height: "54px",
+    minHeight: "54px", // overriding mui's minHeight of 64px
+    padding: "20px",
+    backgroundColor: "black",
   },
+
   link: {
     textDecoration: "none",
+    color: "white",
     "&:hover": {
-      textDecoration: "underline",
+      color: "dodgerblue",
     },
-    "&:visited": {
-      color: "white",
-    },
+    // "&:visited": {
+    //   color: "purple",
+    // },
   },
   "@media (max-width: 768px)": {
     link: {

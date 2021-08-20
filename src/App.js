@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <Grid container>
-      <AppBar appTitle="Portneuf Resource Council" />
+      <AppBar />
       <Splash />
       <About />
       <Footer />

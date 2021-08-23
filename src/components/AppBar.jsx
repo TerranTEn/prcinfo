@@ -63,8 +63,8 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "54px",
-    minHeight: "54px", // overriding mui's minHeight of 64px
+    height: "5vh", // this height + splash height to be 100vh
+    minHeight: "5vh", // overriding mui's minHeight of 64px
     padding: "20px",
     backgroundColor: "black",
   },

@@ -4,9 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 function Download(props) {
   const classes = useStyles();
 
-  const redirect = (targetUrl, logMessage) => {
+  const redirect = (targetUrl) => {
     window.location.href = targetUrl;
-    console.log(logMessage);
   };
 
   return (
@@ -17,23 +16,13 @@ function Download(props) {
       <div className={classes.buttonContainer}>
         <Button
           className={classes.button}
-          onClick={() =>
-            redirect(
-              "https://www.apple.com/app-store/",
-              "User wants to go to the app store"
-            )
-          }
+          onClick={() => redirect("https://www.apple.com/app-store/")}
           variant="outlined"
         >
           App Store
         </Button>
         <Button
-          onClick={() =>
-            redirect(
-              "https://play.google.com/store",
-              "User wants to go to the app store"
-            )
-          }
+          onClick={() => redirect("https://play.google.com/store")}
           variant="outlined"
         >
           Play Store

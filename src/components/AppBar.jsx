@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
+import Donate from "./Donate";
 import Menu from "./Menu";
 import iconImage from "../images/icon.png";
 import textImage from "../images/PRCtext.png";
@@ -14,7 +15,7 @@ function AppBar(props) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12}>
+    <Grid className={classes.root} item xs={12}>
       <MuiAppBar position="static">
         <Toolbar className={classes.toolbar} disableGutters>
           <img className={`${classes.icon}`} src={iconImage} alt="icon" />
@@ -44,6 +45,7 @@ function AppBar(props) {
             <Typography variant="h6">News</Typography>
           </a>
           <Menu className={classes.menuButton} />
+          <Donate />
         </Toolbar>
       </MuiAppBar>
     </Grid>
@@ -51,6 +53,12 @@ function AppBar(props) {
 }
 
 const useStyles = makeStyles({
+  root: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+  },
   icon: {
     height: "100%",
     padding: "0px 10px",

@@ -40,7 +40,7 @@ function Splash() {
 
 const useStyles = makeStyles({
   root: {
-    minHeight: "96vh",
+    minHeight: "100vh",
     textAlign: "center",
     backgroundColor: "black",
     zIndex: -2,
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 
   headerText: {
     maxHeight: "25vh",
-    padding: "23vh 0px 10vh 0px",
+    padding: "32vh 0px 7vh 0px",
   },
   smallHeader: {
     maxWidth: 480,
@@ -58,14 +58,28 @@ const useStyles = makeStyles({
     backgroundImage: `url(${BgImage})`,
     opacity: 0.6,
     backgroundSize: "cover",
-    backgroundAttachment: "fixed",
     backgroundPosition: "center",
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: "-4vh",
-    left: 0,
     zIndex: -1,
+  },
+  "@media (min-width: 769px)": {
+    background: {
+      backgroundAttachment: "fixed",
+      position: "absolute",
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+    },
+  },
+  "@media (max-width: 768px)": {
+    background: {
+      backgroundAttachment: "scroll",
+      position: "absolute",
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+    },
   },
 });
 

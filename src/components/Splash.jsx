@@ -60,25 +60,20 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
     backgroundPosition: "center",
     zIndex: -1,
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
   },
   "@media (min-width: 769px)": {
     background: {
       backgroundAttachment: "fixed",
-      position: "absolute",
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
     },
   },
   "@media (max-width: 768px)": {
     background: {
       backgroundAttachment: "scroll",
-      position: "absolute",
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
     },
   },
 });

@@ -14,6 +14,7 @@ const cardInfo = [
     image: MoshImage1,
     alt: "easy",
     orientationLeft: false,
+    color: "Primary",
   },
   {
     title: "Simply Fast Websites",
@@ -47,7 +48,7 @@ function About() {
     <Grid container xs={12} id="about-section">
       <Grid className={classes.root} container item xs={12} spacing={5}>
         <Grid item xs={12}>
-          <Typography variant="h2" color="textPrimary">
+          <Typography variant="h2" color="Primary">
             About
           </Typography>
         </Grid>
@@ -58,6 +59,7 @@ function About() {
             image={c.image}
             alt={c.alt}
             orientationLeft={c.orientationLeft}
+            textColor={c.color}
           />
         ))}
 
@@ -73,6 +75,7 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 1160,
     margin: "auto",
+    backgroundColor: "black",
   },
 });
 

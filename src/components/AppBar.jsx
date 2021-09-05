@@ -30,7 +30,7 @@ function AppBar(props) {
             className={`${classes.link} ${classes.navItem}`}
             href="#about-section"
           >
-            <Typography variant="h6">About Us</Typography>
+            <Typography variant="h6">About</Typography>
           </a>
           <a
             className={`${classes.link} ${classes.navItem}`}
@@ -44,8 +44,14 @@ function AppBar(props) {
           >
             <Typography variant="h6">News</Typography>
           </a>
-          <Menu className={classes.menuButton} />
+          <a
+            className={`${classes.link} ${classes.navItem}`}
+            href="#about-section"
+          >
+            <Typography variant="h6">Events</Typography>
+          </a>
           <Donate />
+          <Menu className={classes.menuButton} />
         </Toolbar>
       </MuiAppBar>
     </Grid>

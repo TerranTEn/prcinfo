@@ -1,42 +1,37 @@
-import React from "react";
-import { IconButton, Menu as MuiMenu, MenuItem } from "@material-ui/core";
-import { Menu as MenuIcon } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core";
 
-function Menu({ className }) {
-  const [anchorElement, setAnchorElement] = React.useState(null);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+import MenuItem from "./MenuItem";
 
-  const handleClick = (event) => {
-    setAnchorElement(event.target);
-    setIsMenuOpen(true);
-  };
+const menuItems = [
+  { text: "Home", href: "www.google.com" },
+  { text: "About", href: "www.google.com" },
+  { text: "Campaigns", href: "www.google.com" },
+  { text: "News", href: "www.google.com" },
+  { text: "Events", href: "www.google.com" },
+];
 
-  const handleClose = () => {
-    setIsMenuOpen(false);
-  };
+function Menu({ open }) {
+  const classes = useStyles(open);
 
   return (
-    <div className={className}>
-      <IconButton
-        aria-label="Open menu"
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <MenuIcon color="inherit" />
-      </IconButton>
-      <MuiMenu
-        id="simple-menu"
-        anchorEl={anchorElement}
-        open={isMenuOpen}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>About</MenuItem>
-        <MenuItem onClick={handleClose}>Blog</MenuItem>
-        <MenuItem onClick={handleClose}>Contact</MenuItem>
-      </MuiMenu>
+    <div className={classes.Menu}>
+      {menuItems.map((c) => (
+        <MenuItem text={c.text} href={c.href} />
+      ))}
     </div>
   );
 }
+
+const useStyles = makeStyles({
+  Menu: {
+    height: "fit-content",
+    position: "fixed",
+    top: "10vh", // Height of AppBar
+    left: "0px",
+    bottom: "0px",
+    right: "0px",
+    display: (open) => (open ? "" : "none"),
+  },
+});
 
 export default Menu;

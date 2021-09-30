@@ -5,15 +5,20 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import { useRef, useState } from "react";
 
 import Donate from "./Donate";
+import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import iconImage from "../images/icon.png";
 import textImage from "../images/PRCtext.png";
+import { useOnClickOutside } from "../hooks";
 
 function AppBar(props) {
+  const node = useRef();
+  const [open, setOpen] = useState(false);
+  useOnClickOutside(node, () => setOpen(false));
   const classes = useStyles();
-
   return (
     <Grid className={classes.root} item xs={12}>
       <MuiAppBar position="static">
@@ -50,8 +55,15 @@ function AppBar(props) {
           >
             <Typography variant="h6">Events</Typography>
           </a>
+          <div ref={node}>
+            <Hamburger
+              open={open}
+              setOpen={setOpen}
+              className={classes.menuButton}
+            />
+            <Menu open={open} />
+          </div>
           <Donate />
-          <Menu className={classes.menuButton} />
         </Toolbar>
       </MuiAppBar>
     </Grid>
@@ -77,9 +89,9 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "5vh",
-    minHeight: "5vh", // overriding mui's minHeight of 64px
-    padding: "20px",
+    height: "7vh",
+    minHeight: "7vh", // overriding mui's minHeight of 64px
+    padding: "1.5vh",
     backgroundColor: "black",
   },
 

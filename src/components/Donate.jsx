@@ -17,8 +17,8 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     alignContent: "Center",
-    padding: "0px 15px",
-    margin: "30px",
+    padding: "0px 0.5rem",
+    marginLeft: "15px",
     textDecoration: "none",
     backgroundColor: "dodgerblue",
     borderRadius: "2em",
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     },
   },
   text: {
-    padding: "10px",
+    padding: "0.5rem",
     color: "black",
   },
 });

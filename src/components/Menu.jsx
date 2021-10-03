@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 import MenuItem from "./MenuItem";
 
-const menuItems = [
+const menuItemData = [
   { text: "Home", href: "www.google.com" },
   { text: "About", href: "www.google.com" },
   { text: "Campaigns", href: "www.google.com" },
@@ -10,13 +10,15 @@ const menuItems = [
   { text: "Events", href: "www.google.com" },
 ];
 
-function Menu({ open }) {
-  const classes = useStyles(open);
+function Menu(props) {
+  const classes = useStyles(props);
 
   return (
     <div className={classes.Menu}>
-      {menuItems.map((c) => (
-        <MenuItem text={c.text} href={c.href} />
+      {menuItemData.map((c) => (
+        <div>
+          <MenuItem text={c.text} href={c.href} />
+        </div>
       ))}
     </div>
   );
@@ -26,11 +28,11 @@ const useStyles = makeStyles({
   Menu: {
     height: "fit-content",
     position: "fixed",
-    top: "10vh", // Height of AppBar
+    top: (props) => props.height, // Height of AppBar
     left: "0px",
     bottom: "0px",
     right: "0px",
-    display: (open) => (open ? "" : "none"),
+    display: (props) => (props.open ? "" : "none"),
   },
 });
 

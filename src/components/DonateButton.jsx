@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     display: "flex",
     alignContent: "Center",
     padding: "0px 0.5rem",
-    marginLeft: "15px",
     textDecoration: "none",
     backgroundColor: "dodgerblue",
     borderRadius: "2em",

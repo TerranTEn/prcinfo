@@ -7,63 +7,53 @@ import {
 } from "@material-ui/core";
 import { useRef, useState } from "react";
 
-import Donate from "./Donate";
+import DonateButton from "./DonateButton";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-import iconImage from "../images/icon.png";
+
 import textImage from "../images/PRCtext.png";
 import { useOnClickOutside } from "../hooks";
 
-function AppBar(props) {
+const height = "8vh";
+
+const links = [
+  { text: "Home", href: "#about-section" },
+  { text: "About", href: "#about-section" },
+  { text: "Campaigns", href: "#about-section" },
+  { text: "News", href: "#about-section" },
+  { text: "Events", href: "#about-section" },
+];
+
+function AppBar() {
+  const classes = useStyles(height);
   const node = useRef();
   const [open, setOpen] = useState(false);
   useOnClickOutside(node, () => setOpen(false));
-  const classes = useStyles();
   return (
     <Grid className={classes.root} item xs={12}>
       <MuiAppBar position="static">
         <Toolbar className={classes.toolbar} disableGutters>
-          <img className={`${classes.icon}`} src={iconImage} alt="icon" />
-          <img className={`${classes.icon}`} src={textImage} alt="icon" />
-          <a
-            className={`${classes.link} ${classes.navItem}`}
-            href="#about-section"
-          >
-            <Typography variant="h6">Home</Typography>
-          </a>
-          <a
-            className={`${classes.link} ${classes.navItem}`}
-            href="#about-section"
-          >
-            <Typography variant="h6">About</Typography>
-          </a>
-          <a
-            className={`${classes.link} ${classes.navItem}`}
-            href="#about-section"
-          >
-            <Typography variant="h6">Campaigns</Typography>
-          </a>
-          <a
-            className={`${classes.link} ${classes.navItem}`}
-            href="#about-section"
-          >
-            <Typography variant="h6">News</Typography>
-          </a>
-          <a
-            className={`${classes.link} ${classes.navItem}`}
-            href="#about-section"
-          >
-            <Typography variant="h6">Events</Typography>
-          </a>
+          <img
+            className={`${classes.icon} ${classes.navItem}`}
+            src={textImage}
+            alt="icon"
+          />
+          {links.map((c) => (
+            <a className={`${classes.link} ${classes.navItem}`} href={c.href}>
+              <Typography variant="h6">{c.text}</Typography>
+            </a>
+          ))}
           <div ref={node}>
             <Hamburger
               open={open}
               setOpen={setOpen}
-              className={classes.menuButton}
+              className={`${classes.menuButton} ${classes.navItem}`}
             />
-            <Menu open={open} />
+            <Menu open={open} height={height} />
           </div>
-          <Donate />
+          <div className={classes.navItem}>
+            <DonateButton />
+          </div>
         </Toolbar>
       </MuiAppBar>
     </Grid>
@@ -78,23 +68,20 @@ const useStyles = makeStyles({
     width: "100%",
   },
   icon: {
-    height: "100%",
-    padding: "0px 10px",
-  },
-  navItem: {
-    padding: "0px 30px",
+    height: "80%",
   },
   toolbar: {
     flexGrow: "1",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "7vh",
-    minHeight: "7vh", // overriding mui's minHeight of 64px
-    padding: "1.5vh",
+    height: `${height}`,
+    minHeight: "64px", // overriding mui's minHeight of 64px
     backgroundColor: "black",
   },
-
+  navItem: {
+    padding: "0 20px",
+  },
   link: {
     textDecoration: "none",
     color: "white",

@@ -18,7 +18,7 @@ function Splash() {
       <Grid item alignContent="center">
         <img
           src={PRCtext}
-          className={classes.headerText}
+          className={classes.headerImage}
           alt="Portneuf Resource Council"
         />
       </Grid>
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
     zIndex: -2,
   },
 
-  headerText: {
+  headerImage: {
     maxHeight: "25vh",
     padding: "32vh 0px 7vh 0px",
   },

@@ -6,18 +6,18 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import DonateButton from "./DonateButton";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-
 import textImage from "../images/PRCtext.png";
 import { useOnClickOutside } from "../hooks";
 
 const height = "8vh";
 
 const links = [
-  { text: "Home", href: "#about-section" },
+  { text: "Home", to: "/" },
   { text: "About", href: "#about-section" },
   { text: "Campaigns", href: "#about-section" },
   { text: "News", href: "#about-section" },
@@ -39,9 +39,13 @@ function AppBar() {
             alt="icon"
           />
           {links.map((c) => (
-            <a className={`${classes.link} ${classes.navItem}`} href={c.href}>
+            <Link
+              className={`${classes.link} ${classes.navItem}`}
+              href={c.href}
+              to={c.to}
+            >
               <Typography variant="h6">{c.text}</Typography>
-            </a>
+            </Link>
           ))}
           <div ref={node}>
             <Hamburger

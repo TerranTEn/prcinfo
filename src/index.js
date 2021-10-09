@@ -1,17 +1,16 @@
 import {
-  createMuiTheme,
+  createTheme,
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
 import React from "react";
 import ReactDOM from "react-dom";
-
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-let theme = createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: grey[100],

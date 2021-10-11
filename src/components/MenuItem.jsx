@@ -1,16 +1,22 @@
 import { Typography, makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-function MoshCard({ text, href }) {
+function MenuItem(props) {
   const classes = useStyles();
-
   return (
-    <a className={classes.root} href={href}>
+    <Link
+      className={classes.root}
+      to={props.to}
+      href={props.href}
+      onClick={() => props.setOpen()}
+    >
       <Typography variant="h4" color="Primary">
-        {text}
+        {props.text}
       </Typography>
-    </a>
+    </Link>
   );
 }
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -21,4 +27,4 @@ const useStyles = makeStyles({
   },
 });
 
-export default MoshCard;
+export default MenuItem;

@@ -2,23 +2,17 @@ import { makeStyles } from "@material-ui/core";
 
 import MenuItem from "./MenuItem";
 
-const menuItemData = [
-  { text: "Home", href: "www.google.com" },
-  { text: "About", href: "www.google.com" },
-  { text: "Campaigns", href: "www.google.com" },
-  { text: "News", href: "www.google.com" },
-  { text: "Events", href: "www.google.com" },
-];
-
 function Menu(props) {
   const classes = useStyles(props);
-
   return (
     <div className={classes.Menu}>
-      {menuItemData.map((c) => (
-        <div>
-          <MenuItem text={c.text} href={c.href} />
-        </div>
+      {props.links.map((c) => (
+        <MenuItem
+          text={c.text}
+          to={c.to}
+          href={c.href}
+          setOpen={props.setOpen}
+        />
       ))}
     </div>
   );

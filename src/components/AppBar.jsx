@@ -53,7 +53,7 @@ function AppBar() {
               setOpen={setOpen}
               className={`${classes.menuButton} ${classes.navItem}`}
             />
-            <Menu open={open} height={height} />
+            <Menu open={open} height={height} links={links} setOpen={setOpen} />
           </div>
           <div className={classes.navItem}>
             <DonateButton />
@@ -82,6 +82,7 @@ const useStyles = makeStyles({
     height: `${height}`,
     minHeight: "64px", // overriding mui's minHeight of 64px
     backgroundColor: "black",
+    borderBottom: "10px solid dodgerlue",
   },
   navItem: {
     padding: "0 20px",

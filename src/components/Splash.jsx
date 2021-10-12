@@ -1,12 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid } from "@material-ui/core";
 
-import BgImage from "../images/DRCImage.png";
+import BgImage from "../images/WestFork.jpg";
 import PRCtext from "../images/PRCtext-white.png";
 
 function Splash() {
   const classes = useStyles();
-
   return (
     <Grid
       item
@@ -25,7 +24,7 @@ function Splash() {
       <Grid item>
         <Typography
           className={classes.smallHeader}
-          color="Primary"
+          color="primary"
           variant="h5"
         >
           People organizing for a prosperous and healthy Southern Idaho since

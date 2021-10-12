@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles, useTheme } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 import Download from "./Download";
@@ -43,12 +43,13 @@ const cardInfo = [
 ];
 
 function About() {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);
   return (
-    <Grid container xs={12} id="about-section">
-      <Grid className={classes.root} container item xs={12} spacing={5}>
+    <Grid container item xs={12} id="about-section" className={classes.root}>
+      <Grid className={classes.about} container item xs={12} spacing={5}>
         <Grid item xs={12}>
-          <Typography variant="h2" color="Primary">
+          <Typography variant="h2" color="textPrimary">
             About
           </Typography>
         </Grid>
@@ -62,7 +63,6 @@ function About() {
             textColor={c.color}
           />
         ))}
-
         <Grid item xs={12}>
           <Download prompt="Free Download:" />
         </Grid>
@@ -71,12 +71,15 @@ function About() {
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: (theme) => theme.palette.primary.light,
+  },
+  about: {
     maxWidth: 1160,
     margin: "auto",
-    backgroundColor: "black",
+    backgroundColor: (theme) => theme.palette.primary.light,
   },
-});
+}));
 
 export default About;

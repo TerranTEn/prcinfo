@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "@material-ui/core";
 
 import DonateButton from "./DonateButton";
 import Hamburger from "./Hamburger";
@@ -18,14 +19,15 @@ const height = "8vh";
 
 const links = [
   { text: "Home", to: "/" },
-  { text: "About", href: "#about-section" },
-  { text: "Campaigns", href: "#about-section" },
-  { text: "News", href: "#about-section" },
-  { text: "Events", href: "#about-section" },
+  { text: "About", to: "#about-section" },
+  { text: "Campaigns", to: "#about-section" },
+  { text: "News", to: "#about-section" },
+  { text: "Events", to: "#about-section" },
 ];
 
 function AppBar() {
-  const classes = useStyles(height);
+  const theme = useTheme();
+  const classes = useStyles(theme, height);
   const node = useRef();
   const [open, setOpen] = useState(false);
   useOnClickOutside(node, () => setOpen(false));
@@ -64,7 +66,7 @@ function AppBar() {
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
     top: 0,
@@ -81,8 +83,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     height: `${height}`,
     minHeight: "64px", // overriding mui's minHeight of 64px
-    backgroundColor: "black",
-    borderBottom: "10px solid dodgerlue",
+    backgroundColor: (theme) => theme.palette.primary.dark,
   },
   navItem: {
     padding: "0 20px",
@@ -104,6 +105,6 @@ const useStyles = makeStyles({
       display: "none",
     },
   },
-});
+}));
 
 export default AppBar;

@@ -10,7 +10,7 @@ function Hamburger(props) {
         aria-haspopup="true"
         onClick={() => props.setOpen(!props.open)}
       >
-        <MenuIcon color="primary" />
+        <MenuIcon color="accent" />
       </IconButton>
     </div>
   );

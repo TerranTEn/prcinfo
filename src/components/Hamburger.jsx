@@ -3,14 +3,15 @@ import { Menu as MenuIcon } from "@material-ui/icons";
 
 function Hamburger(props) {
   return (
-    <div className={props.className}>
+    <div>
       <IconButton
         aria-label="Open menu"
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={() => props.setOpen(!props.open)}
+        className={props.className}
       >
-        <MenuIcon color="accent" />
+        <MenuIcon color="secondary" />
       </IconButton>
     </div>
   );

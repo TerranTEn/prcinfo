@@ -14,7 +14,6 @@ const cardInfo = [
     image: MoshImage1,
     alt: "easy",
     orientationLeft: false,
-    color: "Primary",
   },
   {
     title: "Simply Fast Websites",
@@ -72,13 +71,12 @@ function About() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: (theme) => theme.palette.primary.light,
-  },
+  // root: {
+  //   backgroundColor: (theme) => theme.palette.primary.light,
+  // },
   about: {
     maxWidth: 1160,
     margin: "auto",
-    backgroundColor: (theme) => theme.palette.primary.light,
   },
 }));
 

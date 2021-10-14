@@ -12,7 +12,7 @@ import { useTheme } from "@material-ui/core";
 import DonateButton from "./DonateButton";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-import textImage from "../images/PRCtext.png";
+import textImage from "../images/icon.png";
 import { useOnClickOutside } from "../hooks";
 
 const height = "8vh";
@@ -90,14 +90,17 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: (theme) => theme.palette.textPrimary.light,
     "&:hover": {
-      color: "dodgerblue",
+      color: (theme) => theme.palette.textPrimary.contrast,
     },
   },
   "@media (max-width: 768px)": {
     link: {
       display: "none",
+    },
+    toolbar: {
+      justifyContent: "space-evenly",
     },
   },
   "@media (min-width: 769px)": {
